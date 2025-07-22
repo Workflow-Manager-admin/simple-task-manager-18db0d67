@@ -1,0 +1,218 @@
+:root {
+  --background-main: #d6d7ef;
+  --primary-dark: #30336b;
+  --card-bg: #fff;
+  --card-shadow: 0 4px 12px rgba(44,62,80,0.07), 0 1.5px 7px rgba(44,62,80,0.07);
+  --primary-purple: #9395d3; /* From figma Ellipse 1 (Add button and nav active) */
+  --primary-black: #000;
+  --inactive-gray: #8b8b8b;
+}
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background-color: var(--background-main);
+}
+.frame-todo-page {
+  width: 414px;
+  min-height: 896px;
+  background: var(--background-main);
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 110px; /* Space for floating button */
+  box-sizing: border-box;
+}
+.status-bar {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 0 10px;
+  box-sizing: border-box;
+}
+.status-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.status-time {
+  font-size: 17px;
+  color: #000;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.status-icons {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.status-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+.app-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 8px 24px 8px 24px;
+  box-sizing: border-box;
+  background: var(--primary-purple);
+  color: #fff;
+  border-radius: 0 0 18px 18px;
+  margin-bottom: 10px;
+}
+.app-title {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  color: #fff;
+}
+
+.calendar-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.todo-navbar {
+  margin: 16px auto 0;
+  width: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+  padding: 7px 10px;
+  height: 50px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 6px 15px;
+  border-radius: 12px;
+  transition: background 0.15s;
+  cursor: pointer;
+  color: var(--inactive-gray);
+}
+
+.nav-btn.active, .nav-btn:active {
+  background: var(--primary-purple);
+  color: #fff;
+}
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.todos-list {
+  width: 400px;
+  margin: 40px auto 0auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Todo Card - reusable */
+.todo-card {
+  padding: 0px 8px;
+}
+.todo-card-main {
+  width: 100%;
+  min-height: 82px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 17px;
+  box-sizing: border-box;
+}
+.todo-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.todo-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-purple);
+  margin-bottom: 6px;
+  letter-spacing: 0.7px;
+}
+.todo-desc {
+  font-size: 14px;
+  color: #222;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.todo-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.14s;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-btn:hover {
+  background: rgba(206, 206, 239, 0.22);
+}
+
+.add-todo-btn {
+  position: fixed;
+  left: calc(50vw - 35px);
+  bottom: 45px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background: var(--primary-purple);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px 0 rgba(44,62,80,0.11);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.18s, background 0.18s;
+  z-index: 10;
+}
+.add-todo-btn:hover {
+  background: #7075c1;
+  box-shadow: 0 6px 18px 2px rgba(44,62,80,0.16);
+}
+.plus-icon img {
+  width: 34px;
+  height: 34px;
+}
+@media (max-width: 450px) {
+  .frame-todo-page, .todos-list { width: 100vw !important; }
+  .app-bar, .todo-navbar { width: 99vw !important; }
+}
